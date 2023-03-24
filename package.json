@@ -5,7 +5,13 @@
     "build": "next build",
     "start": "next start"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "dependencies": {
+    "@sanity/image-url": "^1.0.2",
     "dotenv": "^16.0.3",
     "next": "latest",
     "next-sanity": "^4.1.5",

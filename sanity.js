@@ -1,8 +1,7 @@
 import {
   createClient,
-  createImageUrlBuilder,
 } from "next-sanity";
-require('dotenv').config()
+import createImageUrlBuilder from '@sanity/image-url'
 
 export const config = {
   /**
@@ -13,7 +12,7 @@ export const config = {
    * https://nextjs.org/docs/basic-features/environment-variables
    **/
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "kyni233l",
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'kyni233l',
   apiVersion: "2021-08-11", // or today's date for latest
   /**
    * Set useCdn to `false` if your application require the freshest possible
