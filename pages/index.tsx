@@ -34,7 +34,12 @@ export default function Home({ posts }: Props) {
                 urlFor(post.mainImage).url()!} alt="" />
                 <div className='flex justify-between p-5 bg-white'>
                   <div>
-                    <p className='font-bold text-lg'>{post.title} </p>
+                    <p> 
+                    <span className='font-bold text-lg'>
+                        {post.title} <></>
+                      </span> 
+                      by {post.author.name}
+                    </p>
                     <p>Prep Time: {post.prepTime}</p>
                     <p>Cook Time: {post.cookTime}</p>
                   </div>
