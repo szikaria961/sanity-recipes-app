@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import PortableText from "react-portable-text";
 import Header from "../../components/Header";
 import { sanityClient, urlFor } from "../../sanity";
 import { Post } from "../../typings";
@@ -8,10 +9,19 @@ interface Props {
 }
 
 function Post({ post }: Props ) {
-  console.log(post)
   return(
     <main>
       <Header />
+      <article className="max-w-3xl mx-auto p-5">
+        <h1 className="text-3xl mx-10 mb-3">{post.title}</h1>
+        <h2>Prep Time: {post.prepTime}</h2>
+        <h2>Cook Time: {post.cookTime}</h2>
+        <div>
+          <PortableText dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} 
+          projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} 
+          content={post.body} />
+        </div>
+      </article>
     </main>
   );
 }
@@ -70,6 +80,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       post,
-    }
+    },
+    revalidate: 60, //updates old cache every 60 sec
   }
 }
