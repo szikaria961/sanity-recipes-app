@@ -1,4 +1,5 @@
 export interface Post {
+  body: object[];
   _id: string;
   _createdAt: string;
   title: string;
